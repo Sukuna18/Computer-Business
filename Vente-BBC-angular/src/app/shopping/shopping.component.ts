@@ -78,6 +78,7 @@ export class ShoppingComponent implements OnInit {
       }
       else if(result.dismiss === Swal.DismissReason.cancel){
         this.generatePDF();
+        this.saveCommande();
        
       }
     })

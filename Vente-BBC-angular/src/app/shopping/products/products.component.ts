@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SuccursaleService } from '../Service/succursale.service';
-import { Succursale } from 'src/interfaces/succursale';
 import { Amis } from 'src/interfaces/amis';
 import { Caractesristique } from 'src/interfaces/caracteristique';
 import { Produits } from 'src/interfaces/produits';
-import { CommunicationService } from '../Service/communication.service';
-import { UserService } from '../Service/user.service';
+import { CommunicationService } from 'src/app/Service/communication.service';
+import { UserService } from 'src/app/Service/user.service';
 import { User } from 'src/interfaces/user';
 
 @Component({

@@ -6,12 +6,13 @@ import { ShoppingComponent } from './shopping/shopping.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductsComponent } from './products/products.component';
-import { ListeComponent } from './liste/liste.component';
-import { FactureComponent } from './facture/facture.component';
+import { ProductsComponent } from './shopping/products/products.component';
+import { ListeComponent } from './shopping/liste/liste.component';
+import { FactureComponent } from './shopping/facture/facture.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from './shared/token.interceptor';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { AjoutProduitComponent } from './ajout-produit/ajout-produit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     ListeComponent,
     FactureComponent,
     LoginComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    AjoutProduitComponent
   ],
   imports: [
     BrowserModule,

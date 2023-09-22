@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produits } from 'src/interfaces/produits';
-import { CommunicationService } from '../Service/communication.service';
+import { CommunicationService } from 'src/app/Service/communication.service';
 
 @Component({
   selector: 'app-liste',

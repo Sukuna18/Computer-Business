@@ -10,6 +10,9 @@ export class UserService extends RequestSharedService<RestResponse<Partial<Succu
   override uri(): string {
     return 'user';
   }
+  getUser(){
+    return this.http.get('http://127.0.0.1:8000/api/users/all')
+  }
 
 
 }

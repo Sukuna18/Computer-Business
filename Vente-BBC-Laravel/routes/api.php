@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Route::get('users', [App\Http\Controllers\UserController::class, 'index']);
+Route::get('users/all', [App\Http\Controllers\UserController::class, 'allUsers']);
 Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
 
@@ -30,7 +31,7 @@ Route::middleware('auth:api')->group(function () {
       });
   
   });
-Route::apiResource('users', App\Http\Controllers\UserController::class);
+Route::apiResource('user', App\Http\Controllers\UserController::class)->except(['index']);
 Route::apiResource('produits', App\Http\Controllers\ProduitController::class);
 Route::apiResource('succursales', App\Http\Controllers\SuccursaleController::class);
 Route::apiResource('caracteristiques', App\Http\Controllers\CaracteristiqueController::class);

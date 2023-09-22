@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CommunicationService } from '../Service/communication.service';
+import { CommunicationService } from 'src/app/Service/communication.service';
 import { Produits } from 'src/interfaces/produits';
 import { User } from 'src/interfaces/user';
 

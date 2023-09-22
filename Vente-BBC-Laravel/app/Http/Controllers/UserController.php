@@ -85,4 +85,8 @@ class UserController extends Controller
     {
         $user->delete();
     }
+    public function allusers(){
+        $users = User::all();
+        return $users;
+    }
 }

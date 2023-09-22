@@ -5,6 +5,8 @@ import { RestResponse } from "./rest-response";
 export interface User extends RestResponse<User>{
     nom : string,
     telephone: string,
+    password : string,
+    password_confirmation : string,
     poste : string,
     login : string,
     succursale : string,
