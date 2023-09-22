@@ -1,0 +1,61 @@
+<table class="w-full">
+    <thead>
+      <tr>
+        <th class="text-left font-semibold">Produit</th>
+        <th class="text-left font-semibold">Prix</th>
+        <th class="text-left font-semibold">Quantite</th>
+        <th class="text-left font-semibold">Total</th>
+        <th class="text-left font-semibold">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of products; let i = index">
+        <td class="py-4">
+          <div class="flex items-center">
+            <img
+              class="h-16 w-16 mr-4"
+              [src]="item.image"
+              alt="Product image"
+            />
+            <span class="font-semibold">{{ item.libelle }}</span>
+          </div>
+        </td>
+        <td class="py-4">{{ item.prix }}</td>
+        <td class="py-4">
+          <div class="flex items-center">
+            <div>
+              <div class="flex items-center gap-1">
+                <input
+                  type="number"
+                  id="Quantity"
+                  [value]="item.quantiteSelectionnee"
+                  (change)="updateQuantity($event, i)"
+                  [max]="item.quantite"
+                  [min]="1"
+                  class="h-10 w-24 rounded border-gray-200 sm:text-sm"
+                />
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="py-4">
+          {{ item.prix * item.quantiteSelectionnee }}
+        </td>
+        <td class="py-4">
+          <button
+            class="rounded bg-red-600 p-2"
+            style="margin-left: 20px"
+            (click)="deleteProduct(item.id)"
+          >
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h1
+    *ngIf="products.length == 0"
+    class="translate-x-[40%] my-40 font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+  >
+    Panier Vide
+  </h1>

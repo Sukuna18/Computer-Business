@@ -1,0 +1,41 @@
+<div #factureContent class="rounded-lg shadow-lg px-6 py-8 max-w-md mx-auto mt-8">
+    <div>
+    <h1 class="font-bold text-2xl my-4 text-center text-blue-600">Breukh Business Computer</h1>
+    <hr class="mb-2">
+    <div class="flex justify-between mb-6">
+        <h1 class="text-lg font-bold">Facture</h1>
+        <div class="text-gray-700">
+            <div>Date: {{date | date: 'dd/MM/yyyy'}}</div>
+            <div>Numero #: {{userData?.succursale_telephone}}</div>
+        </div>
+    </div>
+    <div class="mb-8">
+        <h2 class="text-lg font-bold mb-4">Facture Delivrer par:</h2>
+        <div class="text-gray-700 mb-2">Nom: {{userData?.nom}}</div>
+        <div class="text-gray-700 mb-2"> Adresse: {{userData?.succursale_adresse}}</div>
+        <div class="text-gray-700 mb-2">Telephone: {{userData?.telephone}}</div>
+        <div class="text-gray-700">Poste: {{userData?.poste}}</div>
+    </div>
+    <table class="w-full mb-8">
+        <thead>
+            <tr>
+                <th class="text-left font-bold text-gray-700">Description</th>
+                <th class="text-right font-bold text-gray-700">Montant</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data">
+                <td class="text-left text-gray-700">{{item.libelle}} x {{item.quantiteSelectionnee}}</td>
+                <td class="text-right text-gray-700">{{item.prix * item.quantiteSelectionnee}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="text-left font-bold text-gray-700">Total</td>
+                <td class="text-right font-bold text-gray-700">{{total}}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="text-gray-700 mb-2 text-center">Merci de faire confiance a BBC!</div>
+</div>
+</div>
