@@ -44,7 +44,7 @@ export class ProductsComponent implements OnInit {
   
     this.searchResult = this.allData.produits.filter(
       (product: Produits) => product.code_barre.toLowerCase() === searchValue
-    ).map((product: Produits) => {
+    ).map((product: Produits): Partial<Produits> => {
       this.image = product.image;
       this.caracteristiques = product.caracteristiques;
       return { ...product, quantiteSelectionnee: 1 };
@@ -85,6 +85,6 @@ export class ProductsComponent implements OnInit {
       this.searchResult = [];
       this.articleTrouve = false;
       this.communicationService.SendProduct(this.products);
-      localStorage.setItem('products', JSON.stringify(this.products));
+      // localStorage.setItem('products', JSON.stringify(this.products));
   }
 }

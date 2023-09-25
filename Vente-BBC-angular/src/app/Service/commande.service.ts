@@ -3,9 +3,7 @@ import { RequestSharedService } from './request-shared.service';
 import { RestResponse } from 'src/interfaces/rest-response';
 import { Commande } from 'src/interfaces/commande';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CommandeService extends RequestSharedService<RestResponse<Partial<Commande>>>  {
   override uri(): string {
     return 'commandes';

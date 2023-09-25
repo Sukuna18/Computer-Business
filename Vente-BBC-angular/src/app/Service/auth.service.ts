@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  token: string | null = '';
   login(login: string, password: string) {
     return this.http.post('http://127.0.0.1:8000/api/login', { login, password }).pipe(
       tap((response: any) => {

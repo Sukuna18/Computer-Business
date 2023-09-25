@@ -6,6 +6,7 @@ import { CommandeService } from '../Service/commande.service';
 import { Commande } from 'src/interfaces/commande';
 import { AuthService } from '../Service/auth.service';
 import { Router } from '@angular/router';
+import { User } from 'src/interfaces/user';
 
 @Component({
   selector: 'app-shopping',
@@ -17,6 +18,7 @@ export class ShoppingComponent implements OnInit {
   total: number = 0;
   reduction: number = 0;
   data: any;
+  userData: User|undefined;
   ngOnInit(): void {
     this.communicationService.notificationSubject.subscribe((data:any) => {
       this.data = data;
@@ -32,6 +34,10 @@ export class ShoppingComponent implements OnInit {
       this.total = data;
     }
     );
+    this.communicationService.allData.subscribe((data:any) => {
+      this.userData = data;
+    }
+    );
   }
   constructor(private communicationService:CommunicationService, private commandeservice: CommandeService, private authService: AuthService, private router: Router) {}
   saveCommande(){
@@ -39,7 +45,7 @@ export class ShoppingComponent implements OnInit {
       let commande: Partial<Commande> = {
         quantite: product.quantiteSelectionnee,
         produit_id: product.id,
-        user_id: 6,
+        user_id: this.userData?.id,
         prix_vente: product.prix * product.quantiteSelectionnee,
         reduction: this.reduction,
       };

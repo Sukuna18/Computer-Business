@@ -23,7 +23,7 @@ export class LoginComponent {
         showConfirmButton: false,
         timer: 1500
       });
-      this.route.navigate(['/shopping']);
+      this.route.navigate(['/user/shopping']);
      }else{
       return;
      }
